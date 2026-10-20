@@ -39,7 +39,6 @@ public class TaskService {
     }
 
     public List<Task> createTask(TaskCreateDTO taskCreateDTO){
-
         Task task = new Task();
 
         task.setTitle(taskCreateDTO.title());

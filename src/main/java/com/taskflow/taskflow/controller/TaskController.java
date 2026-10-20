@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,6 @@ import com.taskflow.taskflow.entity.Task;
 import com.taskflow.taskflow.entity.dto.TaskCreateDTO;
 import com.taskflow.taskflow.entity.dto.TaskUpdateDTO;
 import com.taskflow.taskflow.service.TaskService;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController 
 @RequestMapping("/v1/tasks")
@@ -46,7 +45,7 @@ public class TaskController {
 
     }
 
-    @PostMapping 
+    @PostMapping
     public ResponseEntity<List<Task>> createTask(@RequestBody TaskCreateDTO taskCreateDTO){
         return ResponseEntity.ok(taskService.createTask(taskCreateDTO));
     }
