@@ -1,5 +1,6 @@
 package com.taskflow.taskflow.service;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,7 +21,12 @@ public class TaskService {
     }
 
     public List<Task> getTasks(){
-        return taskRespository.findAll();
+
+        var tasks = taskRespository.findAll();
+
+        tasks.sort(Comparator.comparing(task -> task.getStatus()));
+
+        return tasks;
     }
 
     public Task getTaskById(String id){
