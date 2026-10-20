@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpw
+      MYSQL_DATABASE: taskflow
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    
